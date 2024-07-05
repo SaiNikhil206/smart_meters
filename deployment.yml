@@ -1,7 +1,7 @@
 jobs:
   - name: daily
     targetName: dev
-    schedule: * 12 * * * 
+    schedule: 0 12 * * * 
     steps:
       - name: run models
-        command: dbt run
+        command: dbt run --select stg__dim_chsu

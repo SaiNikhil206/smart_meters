@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  
+  - name: smart_meters_data
+    description: "smart meters are located in U.K."
+    database: fivetran_data
+    schema: pmv_files
+    tables:
+      - name: DIM_PMV_COMMSHUB
+      - name: pmv_chsu
+      - name: pmv_exception_override

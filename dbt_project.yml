@@ -22,13 +22,6 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-jobs:
-  - name: daily
-    targetName: dev
-    schedule: 5 * * * * 
-    steps:
-      - name: run models
-        command: dbt run
 
 
 # Configuring models

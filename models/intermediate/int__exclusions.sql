@@ -1,5 +1,5 @@
 with exclusions as (
-    select * from {{ ref('int__join_pmv')}}
+    select * from {{ ref('int__left_join_chsu')}}
 ),
 final as (
     select 	COMMSHUB_KEY,
@@ -14,15 +14,13 @@ final as (
 	FIRST_VALID_CHSU_REPORT_KEY,
 	FIRST_CHSU_REPORT_KEY,
 	CHSU_KEY,
-	JOB_TYPE,
+	REPLACE(JOB_TYPE, '''', '') as LATEST_VALID_JOB_TYPE,
 	INSTALLED_DATE,
-	REPORT_START_DATE,
-	REPORT_END_DATE,
 	FIRST_CHSU_RECEIVED_DATE,
     case 
         when TEST_HUB = 'Y' THEN 'TEST HUB'
         when REGION IS NULL THEN 'NO REGION POPULATED'
-        when JOB_TYPE = 'Replacement CHF Install' THEN 'REPLACEMENT CHF INSTALL'
+        when LATEST_VALID_JOB_TYPE = 'Replacement CHF Install' THEN 'REPLACEMENT CHF INSTALL'
         when NO_OF_CHSUS > 0 and NO_OF_VALID_CHSUS = 0 THEN 'CHSU INVALID'
         else 'OTHER'
     end as exclusions

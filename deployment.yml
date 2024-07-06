@@ -1,3 +1,5 @@
+dbtversion: 0.21.0
+
 jobs:
   - name: daily
     targetName: dev

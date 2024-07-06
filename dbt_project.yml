@@ -4,6 +4,7 @@
 # name or the intended use of these models
 name: 'smart_meters'
 version: '1.0.0'
+config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'smart_meters'
@@ -39,7 +40,4 @@ models:
     intermediate:
       +materialized: table
       +schema: int
-    marts:
-      +materialized: table
-      +schema: marts
 

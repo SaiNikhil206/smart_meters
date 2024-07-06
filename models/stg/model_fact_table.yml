@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg__dim_commshub
+    description: "Communications HUB table"
+    columns:
+      - name: COMMSHUB_KEY
+        description: "This is a SURROGATE KEY"
+        data_tests: 
+          - unique
+          

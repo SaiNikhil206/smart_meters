@@ -1,7 +1,5 @@
-{% set report_start_date = "DATEADD(MONTH, -1, CURRENT_TIMESTAMP())" %}
-{% set report_end_date = "CURRENT_TIMESTAMP()" %}
-
-
+{% set report_start_date = "date_trunc('month', current_date)" %}
+{% set report_end_date = "date_trunc('month',current_date) + interval '1 month' - interval '1 day'" %}
 
 with commshub as (
     select * from {{ ref('stg__dim_commshub')}}

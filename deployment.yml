@@ -6,4 +6,4 @@ jobs:
     schedule: 0 12 * * * 
     steps:
       - name: run models
-        command: dbt run --select stg__dim_chsu
+        command: dbt run
